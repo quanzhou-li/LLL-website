@@ -1,0 +1,165 @@
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+#comment .mr-2 {
+  color: blue;
+}
+
+#likes{
+  float: right;
+  color: #EE82EE;
+}
+
+/** Footer **/
+.panel-footer {
+  margin-top: 30px;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  background-color: #555;
+  border-top: 0;
+}
+.panel-footer div.row {
+  margin-bottom: 35px;
+  color: #CCC;
+  line-height: 1.5
+}
+.panel-footer div.text-center {
+  color: #CCC;
+}
+#Contacts > span, #address > span {
+  font-size: 1.3em;
+}
+#address p {
+  color: #DCDD8F;
+  font-size: .8em;
+  line-height: 1.8;
+}
+#testimonials {
+  font-family: Verdana, sans-serif;
+}
+#testimonials p:nth-child(2) {
+  margin-top: 25px;
+}
+/** End Footer **/
+
+/** Home Page **/
+#menu-tile, #specials-tile, #map-tile {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border: 2px solid #888;
+  overflow: hidden;
+}
+#menu-tile {
+  background: url('../image/wine.jpg') no-repeat;
+  background-position: center;
+}
+#specials-tile {
+  background: url('../image/staff.jpg') no-repeat;
+  background-position: center;
+}
+#menu-tile span, #specials-tile span, #map-tile span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  color: #FFF;
+  background-color: #000;
+  opacity: .6;
+}
+#menu-tile:hover, #specials-tile:hover, #map-tile:hover {
+  box-shadow: 0 10px 15px 10px #BBB;
+}
+/** End Home Page **/
+
+
+#CV {
+  background: url('./academic.png') no-repeat;
+}
+
+#Posts {
+  background: url('./ideas.png') no-repeat;
+  background-position: top center;
+}

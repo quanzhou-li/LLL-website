@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+    {% if title %}
+        <title>Quanzhou's Website - {{ title }}</title>
+    {% else %}
+        <title>Quanzhou's Website</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/">Quanzhou's Website</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="https://drive.google.com/file/d/1FbyuxuvvCBOUTGXu2NOZ3KM98U9smKRm/view">CV</a>
+              <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Posts</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if current_user.is_authenticated %}
+                <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+			<h1>Welcome to my page!</h1>
+      <br>
+			<h4>I am Quanzhou Li and I'm currently a forth-year CS student at University of Toronto. Before I came to Canada in 2018, I spent two years studying Computer Science and Mathematics at Beihang University, Beijing.
+      </h4>
+      <br>
+      <h4>This is the first version of the website, which allows people to share ideas and comments with a registered account. I'll also post some of my thoughts on this website occasionally.</h4>
+      <br>
+      <br>
+        </div>
+      </div>
+    </main>
+
+	<div id="main-content" class="container">
+		<div class="jumbotron">
+			<img src="{{ url_for('static', filename='selfie.jpg') }}" alt="Some picture associated with the project" class="img-responsive visible-xs" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
+		</div>
+
+		<div id="home-tiles" class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12" id="Posts">
+				<a href="{{ url_for('main.home') }}"><div id="menu-tile"><span>Posts</span></div></a>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12" id="CV">
+				<a href="https://drive.google.com/file/d/1FbyuxuvvCBOUTGXu2NOZ3KM98U9smKRm/view"><div id="specials-tile"><span>CV</span></div></a>
+			</div>
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<a href="https://www.google.ca/maps/place/University+of+Toronto+-+St.+George+Campus/@43.6688344,-79.4024098,14z/data=!4m8!1m2!2m1!1suniversity+of+toronto!3m4!1s0x882b34b8f331fd9b:0x8d1d9bb6765a76f7!8m2!3d43.6628917!4d-79.3956564">
+					<div id="map-tile">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16326.963408973239!2d-79.39884684343737!3d43.66425615818961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34b8f331fd9b%3A0x8d1d9bb6765a76f7!2sUniversity%20of%20Toronto%20-%20St.%20George%20Campus!5e0!3m2!1sen!2sca!4v1567482597418!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+    <footer class="panel-footer">
+		<div class="container">
+			<div class="row">
+				<section id="Contacts" class="col-sm-4 text-center">
+					<span>Contacts:</span><br>
+					Email: quanzhou.li[at]mail.utoronto.ca
+				</section>
+				<section id="address" class="col-sm-4 text-center">
+					<span>Address:</span><br>
+					University of Toronto<br>
+					27 King's College Cir, Toronto, ON M5S
+				</section>
+				<section id="testimonials" class="col-sm-4 text-center">
+					璀璨的，未必是繁华都市的霓虹
+				</section>
+			</div>
+			<div class="text-center">&copy; Quanzhou Li</div>
+		</div>
+	</footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
